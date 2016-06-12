@@ -1,0 +1,62 @@
+﻿@model HoneyMustard.Web.Models.contactDisplay
+
+@{
+    ViewBag.Title = "DisplayContactList";
+}
+
+<h2>DisplayContactList</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>Contact Type</th>
+
+        <th>Contact First Name</th>
+        <th>Contact Last Name</th>
+        @*<th>Address</th>
+        <th>Email Address</th>*@
+        <th>Tehudat zehut/ passport</th>
+        @*<th>CountryID</th>
+        <th>Phone</th>*@
+        <th>Cell Phone</th>
+
+    </tr>
+
+@foreach (HoneyMustard.Web.Models.ContactListDisplay contact in @Model.Contactss)
+{
+    
+    <tr data-id="@contact.ContactID">
+        
+
+        <td> @contact.contactType</td>
+        <td> @contact.FirstMidName</td>
+        <td> @contact.LastName</td>
+        @*<td> @contact.Address</td>
+
+        <td> @contact.EmailAddress</td>*@
+        <td> @contact.TeudatZehutPassport</td>
+        @*<td> @contact.CountryID</td>
+        <td> @contact.Phone</td>*@
+        <td> @contact.CellPhone</td>
+
+
+
+       
+
+
+        <td>
+
+
+
+
+
+            @Html.ActionLink("Edit", "ContactEdit", new { id = contact.ContactID }) |
+            @Html.ActionLink("Details", "Details", new { id = contact.ContactID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = contact.ContactID })
+        </td>
+    </tr>
+}
+
+</table>

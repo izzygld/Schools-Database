@@ -1,0 +1,85 @@
+﻿
+@{
+    ViewBag.Title = "Stam";
+}
+
+<h2>Stam</h2>
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+<!DOCTYPE html>
+
+<style>
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        color: green;
+    }
+
+    th, td {
+        padding: 5px;
+    }
+</style>
+<body>
+
+    <form action="">
+        <select name="Teachers" onchange="showTeachers(this.value)">
+            <option value="">Select a Teacher:</option>
+            <option value="ss">Shira stefansky</option>
+            <option value="yy ">yy kosbie</option>
+            <option value="b">Mrs B</option>
+        </select>
+    </form>
+    <br>
+    <div id="txtHint" style="background-color:#808080;color:white">
+        The info of that teacher will be displayed,
+        once selected from the dropdown box.
+    </div>
+
+    <script>
+function showTeachers(str) {
+  var xhttp;
+  if (str == "") {
+    document.getElementById("txtHint").innerHTML = "";
+    return;
+  }
+  xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (xhttp.readyState == 4 && xhttp.status == 200) {
+      document.getElementById("txtHint").innerHTML = xhttp.responseText;
+    }
+  };
+  xhttp.open("GET", "getContact.asp?q="+str, true);
+  xhttp.send();
+}
+    </script>
+
+</body>
+
+<%j
+        response.expires=-1
+        sql="SELECT * FROM CONTACTS WHERE CONTACTID="
+        sql=sql & "'" & request.querystring("q") & "'"
+
+        set conn=Server.CreateObject("ADODB.Connection")
+        conn.Provider="Microsoft.Jet.OLEDB.4.0"
+        conn.Open(Server.Mappath("/datafolder/northwind.mdb"))
+        set rs=Server.CreateObject("ADODB.recordset")
+        rs.Open sql,conn
+
+        response.write("<table>
+    ")
+    do until rs.EOF
+    for each x in rs.Fields
+    response.write("
+    <tr>
+        <td><b>" & x.name & "</b></td>")
+        response.write("
+        <td>" & x.value & "</td>
+    </tr>")
+
+    next rs.MoveNext loop
+    response.write("
+</table>")
+                %>

@@ -1,0 +1,118 @@
+﻿@model HoneyMustard.Web.Models.EditReminderModel
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Reminder</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.ReminderID)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.From, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.From, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.From, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.To, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.To, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.To, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Subject, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Subject, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Subject, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Details, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Details, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Details, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ReminderDateTime, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ReminderDateTime, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ReminderDateTime, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" id="save" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to ReminderList", "ReminderList")
+</div>
+<script>
+        $(document).ready(function () {
+            $("#From").kendoComboBox({
+                placeholder: "From Name",
+                serverFiltering: true,
+                dataTextField: "FirstMidName",
+                dataValueField: "ContactID",
+                dataSource: {
+                    transport: {
+                        read: {
+                            url: "@Url.Action("ContactList", "Courses")",
+                            method: "POST"
+                        }
+                    }
+                }
+            });
+
+            $(document).ready(function () {
+
+            $("#To").kendoComboBox({
+                placeholder: "To Name",
+                serverFiltering: true,
+                dataTextField: "FirstMidName",
+                dataValueField: "ContactID",
+                dataSource: {
+                    transport: {
+                        read: {
+                            url: "@Url.Action("ContactList", "Courses")",
+                            method: "POST"
+                        }
+                    }
+                }
+            });
+            });
+
+
+            $(document).ready(function () {
+                // create DateTimePicker from input HTML element
+                $("#AlertDateTime").kendoDateTimePicker({
+                    format: "dd-MM-yyyy",
+                    value: new Date(),
+                    disableDates: ["Sa"],
+
+                });
+            });
+
+
+    //    // create DateTimePicker from input HTML element
+    //        $("#AlertDateTime").kendoDateTimePicker({
+    //        value: new Date()
+    //    });
+   });
+
+        $("#Details").jqte();
+</script>

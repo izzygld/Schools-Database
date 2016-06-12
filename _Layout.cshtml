@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Compuskills</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="http://kendo.cdn.telerik.com/2014.2.716/styles/kendo.common.min.css" rel="stylesheet" />
+    <link href="http://kendo.cdn.telerik.com/2014.2.716/styles/kendo.default.min.css" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/jquery-te-1.4.0.css")" rel="stylesheet" />
+    <script src="http://kendo.cdn.telerik.com/2014.2.716/js/jquery.min.js"></script>
+    <script src="http://kendo.cdn.telerik.com/2014.2.716/js/kendo.ui.core.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="~/Views/Courses/Create.css">
+    <link rel="stylesheet" href="@Url.Content("~/content/styles/kendo.common.min.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/content/styles/kendo.default.min.css")" />
+    <script src="@Url.Content("~/Scripts/jquery-te-1.4.0.js")"></script>
+    <script src="jquery.flips-quote.js"></script>
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Compuskills", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Schedule Manager", "Index", "Courses")</li>
+                    <li>@Html.ActionLink("Grade Book", "ClassList", "Teacher")</li>
+                    <li>@Html.ActionLink("Guidance Planner", "GuidanceSplashPage", "Student")</li>
+                    <li>@Html.ActionLink("Finance Center", "SelectContact", "Finance")</li>
+                    <li>@Html.ActionLink("Contact Center", "Options", "Contact")</li>
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <footer style="clear: both;">
+            <hr />
+            <p>&copy; @DateTime.Now.Year  AYISA&trade;</p>
+            <p>AYISA and HoneyMustard are trademarks of our team.</p>
+        </footer>
+    </div>
+
+
+    @*@Scripts.Render("~/bundles/jquery")*@
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

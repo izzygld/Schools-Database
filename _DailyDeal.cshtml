@@ -1,0 +1,60 @@
+﻿@model HoneyMustard.Interface.Models.Courses
+
+<div class=" panel panel-primary">
+
+    <div class="panel-heading">
+        <h3 class="panel-title">
+            Your daily Course/s deal:  
+
+        </h3>
+
+        <div class="panel-body">
+            <p>
+
+            </p>
+
+            <div id="course-details">
+                <p>
+                    <em>Course:</em>
+                    <b id=" 1"> @Model.CourseName</b>
+                </p>
+
+
+                <p>
+                    <em>Gender:</em>
+                    <b id=" 1"> <span id="  demo">Male</span></b>
+
+
+
+
+
+                </p>
+
+                <p>
+                    <em>Price:</em>
+                    <b id=" 1"> @String.Format("{0:f}", Model.Price)</b>
+
+                </p>
+
+                @Html.ActionLink("Go to course details", "Details",
+
+
+                         new { id = Model.CoursesID },
+                                  new { @class = "btn btn-primary" }
+                )
+            </div>
+
+        </div>
+    </div>
+
+
+
+</div>
+
+
+
+<script>
+    if (@Model.Gender == 1) {
+        document.getElementById("demo").innerHTML ="Female";
+           }
+</script>

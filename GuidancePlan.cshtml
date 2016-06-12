@@ -1,0 +1,195 @@
+﻿    <link rel="stylesheet" href="@Url.Content("~/content/styles/kendo.common.min.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/content/styles/kendo.default.min.css")" />
+
+
+@model HoneyMustard.Web.Models.NewGuidancePlanHeadModels
+
+@{
+    ViewBag.Title = "GuidancePlan";
+}
+
+<div style="float :right">
+    <p>
+        <a href="http://localhost:57598/GuidanceSplashPage">
+            <img src="http://compuskills.org/wptest/wp-content/uploads/2014/08/logoaug141.png" alt="Honey Mustard Project" style="height:100px;margin:4px"></>
+        </a>
+    </p>
+</div>
+<h2 style="text-align:center">New Guidance Plan</h2>
+<br />
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()    
+    
+    <div class="form-horizontal">
+        @Html.HiddenFor(model => model.GuidancePlanID)
+                
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group col-md-2" style="margin-left: 0px; margin-right:0px;">
+            @Html.LabelFor(model => model.TeudatZehutPassport, "Student ID:")
+            <br />
+            @Html.DisplayFor(model => model.TeudatZehutPassport)
+        </div>
+
+        <div class="form-group col-md-2" style="margin-left: 0px; margin-right:0px;">
+            @Html.LabelFor(model => model.StudentName, "Student Name:")
+            <br />
+            @Html.DisplayFor(model => model.StudentName)
+        </div>
+              
+        <div class="form-group col-md-2" style="margin-left: 0px; margin-right:0px;">
+            @Html.LabelFor(model => model.DateCreated, "Date Created:")
+            <br />
+            @Html.DisplayFor(model => model.DateCreated)
+        </div> 
+        
+        <div class="form-group col-md-2" style="margin-left: 0px; margin-right:0px;">
+            @Html.LabelFor(model => model.Authors, "Author:")
+            <br />
+            <input id="AuthorID" />
+            @Html.ValidationMessage("Author", "", new { @class = "text-danger" })
+        </div>
+
+        <br />
+
+        <div class="form-group col-md-3" style="clear: both; margin-left: 0px; margin-right:0px;">
+            <br />
+            @Html.LabelFor(model => model.Degrees, "Degree:")
+            <br />
+            <input id="DegreeID" />
+            @Html.ValidationMessage("Degree", "", new { @class = "text-danger" })
+        </div>
+         
+        <div class="form-group col-md-1" style="margin-left: 0px; margin-right:0px;">
+            @Html.Label("Total Credits:")
+            <br />
+            <input id=totalCredits style="max-width: 60px;" />
+        </div>
+                
+        <div class="form-group col-md-2" style="margin-left: 0px; margin-right:0px;">
+            <br />
+            @Html.LabelFor(model => model.PeriodFrom, "Period From:")
+            <br />
+            <input id="PeriodFrom" />
+        </div>
+        
+        <div class="form-group col-md-2" style="margin-left: 0px; margin-right:0px;">
+            <br />
+            @Html.LabelFor(model => model.YearFrom, "Year:")
+            <br />
+            <input id="YearFrom" value="Choose Year" style="max-width: 130px;" />
+        </div>
+
+        <div class="form-group col-md-2" style="margin-left: 0px; margin-right:0px;">
+            <br />
+            @Html.LabelFor(model => model.PeriodEnd, "Period End:")
+            <br />
+            <input id="PeriodEnd" />
+        </div>
+
+        <div class="form-group col-md-2" style="margin-left: 0px; margin-right:0px;">
+            <br />
+            @Html.LabelFor(model => model.YearEnd, "Year:")
+            <br />
+            <input id="YearEnd" value="Choose Year" style="max-width: 130px;" />
+        </div>
+        
+        <hr/>
+
+        <div class="form-group col-md-8" style="float: left; clear: both; border-right: 1px solid black">
+            @Html.Partial("_NewGuidancePlanDetail")
+        </div>
+
+
+
+        <hr/>
+
+        <div class="form-group" style="text-align: center; clear: both">
+            <input id="save-guidance-plan" class="btn btn-default" name="Save Guidance Plan" type="submit" value="Save" />
+            <input id="print-save-guidance-plan" class="btn btn-default" name="Print & Save Guidance Plan" type="submit" value="Print & Save" />
+        </div>
+
+   </div>
+} 
+
+<script>
+    $(document).ready(function () {
+        $("#DegreeID").kendoComboBox({
+            placeholder: "Select Degree",
+            serverFiltering: true,
+            dataTextField: "Name",
+            dataValueField: "DegreeID",
+            dataSource: {
+                transport: {
+                    read: {
+                        url: "@Url.Action("DegreeList", "NewGuidancePlan")",
+                        method: "POST"
+                    }
+                }
+            },
+            change: function (e) {
+                var totalCredits = this.dataItem().TotalCredit;
+                $("#totalCredits").val(totalCredits);
+            }
+        });
+
+        $("#AuthorID").kendoComboBox({
+            placeholder: "Select Author",
+            serverFiltering: true,
+            dataTextField: "Name",
+            dataValueField: "ContactID",
+            dataSource: {
+                transport: {
+                    read: {
+                        url: "@Url.Action("AuthorList", "NewGuidancePlan")",
+                        method: "POST"
+                    }
+                }
+            }
+        });
+
+
+        var data = [
+            { text: "Winter", value: "1" },
+            { text: "Spring", value: "2" },
+            { text: "Summer", value: "3" },
+            { text: "Fall", value: "4" }
+        ];
+
+        // create DropDownList from input HTML element
+        $("#PeriodFrom").kendoDropDownList({
+            dataTextField: "text",
+            dataValueField: "value",
+            dataSource: data,
+            index: 0,
+        });
+
+        var PeriodFrom = $("#PeriodFrom").data("kendoDropDownList");
+
+        $("#PeriodEnd").kendoDropDownList({
+            dataTextField: "text",
+            dataValueField: "value",
+            dataSource: data,
+            index: 0,
+        });
+
+        var PeriodEnd = $("#PeriodEnd").data("kendoDropDownList");
+
+        $("#YearFrom").kendoDatePicker({
+            start: "decade",
+            depth: "decade",
+            format: "yyyy"
+        });
+
+        $("#YearEnd").kendoDatePicker({
+            start: "decade",
+            depth: "decade",
+            format: "yyyy"
+        });
+
+        $("#print-save-guidance-plan").on("submit", function (e) {
+            window.print();
+        });
+
+    });
+</script>

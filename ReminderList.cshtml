@@ -1,0 +1,87 @@
+﻿@model HoneyMustard.Web.Models.ReminderScreen
+
+@{
+    ViewBag.Title = "ReminderList";
+}
+<p>
+    @Html.ActionLink("Create New Reminder", "CreateReminder")
+</p>
+
+<div align="center" class="table-responsive ">
+
+    <table class="table-bordered table-condensed table-striped">
+        <thead>
+            <tr>
+                <th>Reminder From:</th>
+                <th>Reminder To:</th>
+                <th>Subject:</th>
+                <th>Details:</th>
+                <th>Alarm:</th>
+
+               
+            </tr>
+        </thead>
+
+        <tbody>
+        
+            @foreach (HoneyMustard.Web.Models.ReminderCenter ReminderList in @Model.Reminders)
+            {
+                <tr data-id="@ReminderList.ReminderID">
+                  
+                    
+                      <td>@ReminderList.From</td>
+
+                    
+                    <td>@ReminderList.To</td>
+                  
+                    <td>@ReminderList.Subject</td>
+                    <td>@ReminderList.Details</td>
+
+
+                    <td>@ReminderList.ReminderDateTime</td>
+
+
+
+
+
+
+
+                    <td>
+
+
+                        @Html.ActionLink("Edit", "EditReminder", new {id= ReminderList.ReminderID }) |
+                        @Html.ActionLink("Delete", "DeleteReminder", new { id = ReminderList.ReminderID })|
+                        
+                        @Html.ActionLink("Details", "ReminderDetails", new { id = ReminderList.ReminderID }) 
+
+                        
+                    </td>
+                </tr>
+            }
+</tbody>
+</table>
+</div>
+
+
+<script>
+    $("#course2").kendoComboBox({
+        placeholder: "From (name):",
+        serverFiltering: true,
+        dataTextField: "FirstMidName",
+        dataValueField: "ContactID",
+        dataSource: {
+            transport: {
+                read: {
+                    url: "@Url.Action("ReminderContactList", "Contact")",
+                    method: "POST"
+                }
+            }
+        },
+        change: function (e) {
+            var firstMidName = this.dataItem().FirstMidName;
+            $("#credit2").val(firstMidName);
+        }
+    });
+
+
+</script>

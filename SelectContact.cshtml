@@ -1,0 +1,51 @@
+﻿    @model HoneyMustard.Web.Models.FinanceSearchModels
+@using HoneyMustard.Web.Models
+
+@{
+    ViewBag.Title = "SelectContact";
+}
+<script>
+    $(document).ready(function () {
+        $("#studentbutton").click(function () {
+            location.href = '@Url.Action("Student","Finance")/' + $("#studentidnew").val()
+        });
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        $("#employeebutton").click(function () {
+            location.href = '@Url.Action("Employee","Finance")/' + $("#employeeidnew").val()
+        });
+    });
+</script>
+<div style="text-align:right">
+  <img src="http://compuskills.org/wptest/wp-content/uploads/2014/08/logoaug141.png" alt="Honey Mustard Project" style="height:100px;margin:4px"></>
+</div>
+
+<h2 style="text-align:center"><u>Select Name</u></h2>
+
+<div>
+     <table align="center">
+        <tr>
+            <td >
+                <div>
+                    Students <br />
+                    @Html.DropDownList("studentidnew", Model.Students)
+                </div>
+                <div style="margin-top:10px">
+                    <input type="button" id="studentbutton" class="btn btn-success btn-sm" value="Go To"/>
+                </div>
+            </td>
+            <td style="width:50px"></td>
+            <td>
+                <div>
+                    Employees <br />
+                    @Html.DropDownList("employeeidnew", Model.Employees)
+                </div>
+                <div style="margin-top:10px">
+                    <input type="button" id="employeebutton" class="btn btn-success btn-sm" value="Go To" />
+                </div>
+            </td>
+        </tr>
+    </table>      
+</div>

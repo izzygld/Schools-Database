@@ -1,0 +1,75 @@
+﻿@model HoneyMustard.Web.Models.EmployeeFinanceModel
+    @using HoneyMustard.Web.Models
+
+@{
+    ViewBag.Title = "Employee";
+}
+
+<h2>Employee</h2>
+
+<div>
+    <h4>EmployeeFinanceModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmailAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmailAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CellPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CellPhone)
+        </dd>
+
+    </dl>
+</div>
+<div>
+    <table class="table-bordered table-condensed table-hover table-striped">
+        <thead>
+            <tr>
+                <th>Amount Paid</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+           @foreach (EmployeeTableRowModels employee in Model.Payments)
+           {
+               <tr>
+                   <td>@employee.AmountPaid</td>
+                   <td>@employee.Date</td>
+               </tr>
+           }
+        </tbody>
+    </table>
+</div>

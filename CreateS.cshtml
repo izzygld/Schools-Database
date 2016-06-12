@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "CreateS";
+}
+
+<h2>CreateS</h2>
+
+@*<% @Language=VBScript %>*@
+<% Option Explicit %>
+<%
+Function DateOfFirstWeekDay(dateObj, WhichDay)
+	Dim TempDay
+	TempDay = WeekDay(DateSerial(Year(dateObj), Month(dateObj), 1))
+	If TempDay > WhichDay Then
+		TempDay = 1 + ((WhichDay + 7) - TempDay)
+	Else
+		TempDay = 1 + (WhichDay - TempDay)
+	End If
+	DateOfFirstWeekDay = TempDay
+End Function
+'
+	Dim curdate, tmpdate, x
+	curdate = Date()
+	tmpdate = DateSerial(Year(curdate), Month(curdate), DateOfFirstWeekDay(tmpdate, vbWednesday))
+	Do Until tmpdate > curdate
+		tmpdate = DateAdd("d", 7, tmpdate)
+	Loop
+%>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+          "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Language" content="en-us">
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <title>Populate Dropdown List</title>
+</head>
+
+<body>
+    <form>
+        <p>
+            <select name="seldates" size="1">
+                <%	For x = 1 To 8	%>
+                <option><%=FormatDateTime(tmpdate, vbShortDate)%></option>
+                <%		tmpdate = DateAdd("d", 7, tmpdate)
+                Next
+                %>
+            </select>
+        </p>
+    </form>
+</body>
+</html>

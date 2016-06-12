@@ -1,0 +1,59 @@
+﻿<link href="jquery.flip-quote.css" rel="stylesheet" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+@{
+    ViewBag.Title = "Options";
+    //Layout = "~/Views/Shared/MyLayoutPage.cshtml";
+}
+
+<h2>
+    Please choose from the following options.
+
+
+</h2>
+<div>
+    
+</div>
+<div>
+    <div>
+        <p id="a" ><a class="btn btn-primary" style="align-content:center" href="~/Contact/Create">Create a new Contact &raquo;</a></p>
+
+        <p id="b"><a class="btn btn-success" href="~/Contact/DisplayContactList">Display ContactList&raquo;</a></p>
+
+        <p id="c"><a class="btn btn-danger" href="~/Contact/CreateReminder">Create a Reminder &raquo;</a></p>
+
+        <p id="e"><a class="btn btn-warning" href="~/Contact/DisplayReminderList">Display ReminderList &raquo;</a></p>
+        @section Scripts{
+            <script src="jquery.flips-quote.js"></script>}
+
+    </div>
+    <style>
+        .btn-primary{
+align-content:center
+
+        }
+        p{
+                align-content:center
+        }
+    </style>
+<script>
+
+    $(document).ready(function(){
+
+        $("p").mouseover(function () {
+            animateElement($(this));
+
+        });
+
+
+        function animateElement(element) {
+            element.animate({ height: '+=15', width: '+=15' })
+            .animate({ height: '-=15', width: '-=15' });
+        }
+
+
+
+    });
+
+   
+</script>

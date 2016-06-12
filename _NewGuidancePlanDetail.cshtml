@@ -1,0 +1,669 @@
+﻿<link rel="stylesheet" href="@Url.Content("~/content/styles/kendo.common.min.css")" />
+<link rel="stylesheet" href="@Url.Content("~/content/styles/kendo.default.min.css")" />
+
+
+@model HoneyMustard.Web.Models.NewGuidancePlanHeadModels
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.HiddenFor(model => model.GuidancePlanID)
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group col-md-5" style="float: left">
+            <div class="form-group col-md-2" style="margin-left: 0px; margin-right:0px;">
+                <input id="season1" />
+            </div>   
+        
+            <div class="form-group col-md-1" style="margin-left: 0px; margin-right:25px; float: right;">
+                <input id="year1" value="Year" style="max-width: 90px;" />
+            </div>
+        
+            <div class="form-group col-md-3" style="clear: both; margin-left: 0px; margin-right:0px;">
+                <input id="course1" />
+            </div>
+
+            <div class="form-group col-md-1" style="margin-left: 0px; margin-right:0px; float: right;">
+                <input id=credit1 style="max-width: 60px;" />
+            </div>
+        
+            <div class="form-group col-md-3" style="clear: both; margin-left: 0px; margin-right:0px;">
+                <input id="course2" />
+            </div>
+
+            <div class="form-group col-md-1" style="margin-left: 0px; margin-right:0px; float: right;">
+                <input id=credit2 style="max-width: 60px;" />
+            </div>
+        
+            <div class="form-group col-md-3" style="clear: both; margin-left: 0px; margin-right:0px;">
+                <input id="course3" />
+            </div>
+
+            <div class="form-group col-md-1" style="margin-left: 0px; margin-right:0px; float: right;">
+                <input id=credit3 style="max-width: 60px;" />
+            </div>
+        
+            <div class="form-group col-md-3" style="clear: both; margin-left: 0px; margin-right:0px;">
+                <input id="course4" />
+            </div>
+
+            <div class="form-group col-md-1" style="margin-left: 0px; margin-right:0px; float: right;">
+                <input id=credit4 style="max-width: 60px;" />
+            </div>
+        
+            <div class="form-group col-md-3" style="clear: both; margin-left: 0px; margin-right:0px;">
+                <input id="course5" />
+            </div>
+
+            <div class="form-group col-md-1" style="margin-left: 0px; margin-right:0px; float: right;">
+                <input id=credit5 style="max-width: 60px;" />
+            </div>
+
+            <br />
+
+            <div class="form-group col-md-2" style="clear: both; margin-left: 0px; margin-right:0px;">
+                <input id="season2" />
+            </div>
+
+            <div class="form-group col-md-1" style="margin-left: 0px; margin-right:25px; float: right;">
+                <input id="year2" value="Year" style="max-width: 90px;" />
+            </div>
+
+            <div class="form-group col-md-3" style="clear: both; margin-left: 0px; margin-right:0px;">
+                <input id="course6" />
+            </div>
+            
+            <div class="form-group col-md-1" style="margin-left: 0px; margin-right:0px; float: right;">
+                <input id=credit6 style="max-width: 60px;" />
+            </div>
+
+            <div class="form-group col-md-3" style="clear: both; margin-left: 0px; margin-right:0px;">
+                <input id="course7" />
+            </div>
+
+            <div class="form-group col-md-1" style="margin-left: 0px; margin-right:0px; float: right;">
+                <input id=credit7 style="max-width: 60px;" />
+            </div>
+
+            <div class="form-group col-md-3" style="clear: both; margin-left: 0px; margin-right:0px;">
+                <input id="course8" />
+            </div>
+
+            <div class="form-group col-md-1" style="margin-left: 0px; margin-right:0px; float: right;">
+                <input id=credit8 style="max-width: 60px;" />
+            </div>
+
+            <div class="form-group col-md-3" style="clear: both; margin-left: 0px; margin-right:0px;">
+                <input id="course9" />
+            </div>
+
+            <div class="form-group col-md-1" style="margin-left: 0px; margin-right:0px; float: right;">
+                <input id=credit9 style="max-width: 60px;" />
+            </div>
+
+            <div class="form-group col-md-3" style="clear: both; margin-left: 0px; margin-right:0px;">
+                <input id="course10" />
+            </div>
+
+            <div class="form-group col-md-1" style="margin-left: 0px; margin-right:0px; float: right;">
+                <input id=credit10 style="max-width: 60px;" />
+            </div>
+        </div>
+        
+        <div class="form-group col-md-5" style="float: left; margin-left: 40px;">
+            <div class="form-group col-md-2" style="margin-left: 0px; margin-right:0px;">
+                <input id="season3" />
+            </div>
+
+            <div class="form-group col-md-2" style="margin-left: 0px; margin-right:25px; float: right;">
+                <input id="year3" value="Year" style="max-width: 90px;" />
+            </div>
+
+            <div class="form-group col-md-3" style="clear: both; margin-left: 0px; margin-right:0px;">
+                <input id="course11" />
+            </div>
+
+            <div class="form-group col-md-1" style="margin-left: 0px; margin-right:0px; float: right;">
+                <input id=credit11 style="max-width: 60px;" />
+            </div>
+
+            <div class="form-group col-md-3" style="clear: both; margin-left: 0px; margin-right:0px;">
+                <input id="course12" />
+            </div>
+
+            <div class="form-group col-md-1" style="margin-left: 0px; margin-right:0px; float: right;">
+                <input id=credit12 style="max-width: 60px;" />
+            </div>
+
+            <div class="form-group col-md-3" style="clear: both; margin-left: 0px; margin-right:0px;">
+                <input id="course13" />
+            </div>
+
+            <div class="form-group col-md-1" style="margin-left: 0px; margin-right:0px; float: right;">
+                <input id=credit13 style="max-width: 60px;" />
+            </div>
+
+            <div class="form-group col-md-3" style="clear: both; margin-left: 0px; margin-right:0px;">
+                <input id="course14" />
+            </div>
+
+            <div class="form-group col-md-1" style="margin-left: 0px; margin-right:0px; float: right;">
+                <input id=credit14 style="max-width: 60px;" />
+            </div>
+
+            <div class="form-group col-md-3" style="clear: both; margin-left: 0px; margin-right:0px;">
+                <input id="course15" />
+            </div>
+
+            <div class="form-group col-md-1" style="margin-left: 0px; margin-right:0px; float: right;">
+                <input id=credit15 style="max-width: 60px;" />
+            </div>
+
+            <br />
+
+            <div class="form-group col-md-2" style="clear: both; margin-left: 0px; margin-right:0px;">
+                <input id="season4" />
+            </div>
+
+            <div class="form-group col-md-2" style="margin-left: 0px; margin-right:25px; float: right;">
+                <input id="year4" value="Year" style="max-width: 90px;" />
+            </div>
+
+            <div class="form-group col-md-3" style="clear: both; margin-left: 0px; margin-right:0px;">
+                <input id="course16" />
+            </div>
+
+            <div class="form-group col-md-1" style="margin-left: 0px; margin-right:0px; float: right;">
+                <input id=credit16 style="max-width: 60px;" />
+            </div>
+
+            <div class="form-group col-md-3" style="clear: both; margin-left: 0px; margin-right:0px;">
+                <input id="course17" />
+            </div>
+
+            <div class="form-group col-md-1" style="margin-left: 0px; margin-right:0px; float: right;">
+                <input id=credit17 style="max-width: 60px;" />
+            </div>
+
+            <div class="form-group col-md-3" style="clear: both; margin-left: 0px; margin-right:0px;">
+                <input id="course18" />
+            </div>
+
+            <div class="form-group col-md-1" style="margin-left: 0px; margin-right:0px; float: right;">
+                <input id=credit18 style="max-width: 60px;" />
+            </div>
+
+            <div class="form-group col-md-3" style="clear: both; margin-left: 0px; margin-right:0px;">
+                <input id="course19" />
+            </div>
+
+            <div class="form-group col-md-1" style="margin-left: 0px; margin-right:0px; float: right;">
+                <input id=credit19 style="max-width: 60px;" />
+            </div>
+
+            <div class="form-group col-md-3" style="clear: both; margin-left: 0px; margin-right:0px;">
+                <input id="course20" />
+            </div>
+
+            <div class="form-group col-md-1" style="margin-left: 0px; margin-right:0px; float: right;">
+                <input id=credit20 style="max-width: 60px;" />
+            </div>
+        </div>
+    </div>
+}
+
+<script>
+    $(document).ready(function () {
+        $("#course1").kendoComboBox({
+            placeholder: "Select Course",
+            serverFiltering: true,
+            dataTextField: "CourseName",
+            dataValueField: "CoursesID",
+            dataSource: {
+                transport: {
+                    read: {
+                        url: "@Url.Action("CoursesList", "NewGuidancePlan")",
+                        method: "POST"
+                    }
+                }
+            },
+            change: function (e) {
+                var credits = this.dataItem().Credit;
+                $("#credit1").val(credits);
+            }
+        });
+
+        $("#course2").kendoComboBox({
+            placeholder: "Select Course",
+            serverFiltering: true,
+            dataTextField: "CourseName",
+            dataValueField: "CoursesID",
+            dataSource: {
+                transport: {
+                    read: {
+                        url: "@Url.Action("CoursesList", "NewGuidancePlan")",
+                    method: "POST"
+                    }
+                }
+            },
+            change: function (e) {
+                var credits = this.dataItem().Credit;
+                $("#credit2").val(credits);
+            }
+        });
+
+        $("#course3").kendoComboBox({
+            placeholder: "Select Course",
+            serverFiltering: true,
+            dataTextField: "CourseName",
+            dataValueField: "CoursesID",
+            dataSource: {
+                transport: {
+                    read: {
+                        url: "@Url.Action("CoursesList", "NewGuidancePlan")",
+                    method: "POST"
+                    }
+                }
+            },
+            change: function (e) {
+                var credits = this.dataItem().Credit;
+                $("#credit3").val(credits);
+            }
+        });
+
+        $("#course4").kendoComboBox({
+            placeholder: "Select Course",
+            serverFiltering: true,
+            dataTextField: "CourseName",
+            dataValueField: "CoursesID",
+            dataSource: {
+                transport: {
+                    read: {
+                        url: "@Url.Action("CoursesList", "NewGuidancePlan")",
+                    method: "POST"
+                    }
+                }
+            },
+            change: function (e) {
+                var credits = this.dataItem().Credit;
+                $("#credit4").val(credits);
+            }
+        });
+
+        $("#course5").kendoComboBox({
+            placeholder: "Select Course",
+            serverFiltering: true,
+            dataTextField: "CourseName",
+            dataValueField: "CoursesID",
+            dataSource: {
+                transport: {
+                    read: {
+                        url: "@Url.Action("CoursesList", "NewGuidancePlan")",
+                    method: "POST"
+                    }
+                }
+            },
+            change: function (e) {
+                var credits = this.dataItem().Credit;
+                $("#credit5").val(credits);
+            }
+        });
+
+        $("#course6").kendoComboBox({
+            placeholder: "Select Course",
+            serverFiltering: true,
+            dataTextField: "CourseName",
+            dataValueField: "CoursesID",
+            dataSource: {
+                transport: {
+                    read: {
+                        url: "@Url.Action("CoursesList", "NewGuidancePlan")",
+                    method: "POST"
+                    }
+                }
+            },
+            change: function (e) {
+                var credits = this.dataItem().Credit;
+                $("#credit6").val(credits);
+            }
+        });
+
+        $("#course7").kendoComboBox({
+            placeholder: "Select Course",
+            serverFiltering: true,
+            dataTextField: "CourseName",
+            dataValueField: "CoursesID",
+            dataSource: {
+                transport: {
+                    read: {
+                        url: "@Url.Action("CoursesList", "NewGuidancePlan")",
+                    method: "POST"
+                    }
+                }
+            },
+            change: function (e) {
+                var credits = this.dataItem().Credit;
+                $("#credit7").val(credits);
+            }
+        });
+
+        $("#course8").kendoComboBox({
+            placeholder: "Select Course",
+            serverFiltering: true,
+            dataTextField: "CourseName",
+            dataValueField: "CoursesID",
+            dataSource: {
+                transport: {
+                    read: {
+                        url: "@Url.Action("CoursesList", "NewGuidancePlan")",
+                    method: "POST"
+                    }
+                }
+            },
+            change: function (e) {
+                var credits = this.dataItem().Credit;
+                $("#credit8").val(credits);
+            }
+        });
+
+        $("#course9").kendoComboBox({
+            placeholder: "Select Course",
+            serverFiltering: true,
+            dataTextField: "CourseName",
+            dataValueField: "CoursesID",
+            dataSource: {
+                transport: {
+                    read: {
+                        url: "@Url.Action("CoursesList", "NewGuidancePlan")",
+                    method: "POST"
+                    }
+                }
+            },
+            change: function (e) {
+                var credits = this.dataItem().Credit;
+                $("#credit9").val(credits);
+            }
+        });
+
+        $("#course10").kendoComboBox({
+            placeholder: "Select Course",
+            serverFiltering: true,
+            dataTextField: "CourseName",
+            dataValueField: "CoursesID",
+            dataSource: {
+                transport: {
+                    read: {
+                        url: "@Url.Action("CoursesList", "NewGuidancePlan")",
+                    method: "POST"
+                    }
+                }
+            },
+            change: function (e) {
+                var credits = this.dataItem().Credit;
+                $("#credit10").val(credits);
+            }
+        });
+
+        $("#course11").kendoComboBox({
+            placeholder: "Select Course",
+            serverFiltering: true,
+            dataTextField: "CourseName",
+            dataValueField: "CoursesID",
+            dataSource: {
+                transport: {
+                    read: {
+                        url: "@Url.Action("CoursesList", "NewGuidancePlan")",
+                    method: "POST"
+                    }
+                }
+            },
+            change: function (e) {
+                var credits = this.dataItem().Credit;
+                $("#credit11").val(credits);
+            }
+        });
+
+        $("#course12").kendoComboBox({
+            placeholder: "Select Course",
+            serverFiltering: true,
+            dataTextField: "CourseName",
+            dataValueField: "CoursesID",
+            dataSource: {
+                transport: {
+                    read: {
+                        url: "@Url.Action("CoursesList", "NewGuidancePlan")",
+                    method: "POST"
+                    }
+                }
+            },
+            change: function (e) {
+                var credits = this.dataItem().Credit;
+                $("#credit12").val(credits);
+            }
+        });
+
+        $("#course13").kendoComboBox({
+            placeholder: "Select Course",
+            serverFiltering: true,
+            dataTextField: "CourseName",
+            dataValueField: "CoursesID",
+            dataSource: {
+                transport: {
+                    read: {
+                        url: "@Url.Action("CoursesList", "NewGuidancePlan")",
+                    method: "POST"
+                    }
+                }
+            },
+            change: function (e) {
+                var credits = this.dataItem().Credit;
+                $("#credit13").val(credits);
+            }
+        });
+
+        $("#course14").kendoComboBox({
+            placeholder: "Select Course",
+            serverFiltering: true,
+            dataTextField: "CourseName",
+            dataValueField: "CoursesID",
+            dataSource: {
+                transport: {
+                    read: {
+                        url: "@Url.Action("CoursesList", "NewGuidancePlan")",
+                    method: "POST"
+                    }
+                }
+            },
+            change: function (e) {
+                var credits = this.dataItem().Credit;
+                $("#credit14").val(credits);
+            }
+        });
+
+        $("#course15").kendoComboBox({
+            placeholder: "Select Course",
+            serverFiltering: true,
+            dataTextField: "CourseName",
+            dataValueField: "CoursesID",
+            dataSource: {
+                transport: {
+                    read: {
+                        url: "@Url.Action("CoursesList", "NewGuidancePlan")",
+                    method: "POST"
+                    }
+                }
+            },
+            change: function (e) {
+                var credits = this.dataItem().Credit;
+                $("#credit15").val(credits);
+            }
+        });
+
+        $("#course16").kendoComboBox({
+            placeholder: "Select Course",
+            serverFiltering: true,
+            dataTextField: "CourseName",
+            dataValueField: "CoursesID",
+            dataSource: {
+                transport: {
+                    read: {
+                        url: "@Url.Action("CoursesList", "NewGuidancePlan")",
+                    method: "POST"
+                    }
+                }
+            },
+            change: function (e) {
+                var credits = this.dataItem().Credit;
+                $("#credit16").val(credits);
+            }
+        });
+
+        $("#course17").kendoComboBox({
+            placeholder: "Select Course",
+            serverFiltering: true,
+            dataTextField: "CourseName",
+            dataValueField: "CoursesID",
+            dataSource: {
+                transport: {
+                    read: {
+                        url: "@Url.Action("CoursesList", "NewGuidancePlan")",
+                    method: "POST"
+                    }
+                }
+            },
+            change: function (e) {
+                var credits = this.dataItem().Credit;
+                $("#credit17").val(credits);
+            }
+        });
+
+        $("#course18").kendoComboBox({
+            placeholder: "Select Course",
+            serverFiltering: true,
+            dataTextField: "CourseName",
+            dataValueField: "CoursesID",
+            dataSource: {
+                transport: {
+                    read: {
+                        url: "@Url.Action("CoursesList", "NewGuidancePlan")",
+                    method: "POST"
+                    }
+                }
+            },
+            change: function (e) {
+                var credits = this.dataItem().Credit;
+                $("#credit18").val(credits);
+            }
+        });
+
+        $("#course19").kendoComboBox({
+            placeholder: "Select Course",
+            serverFiltering: true,
+            dataTextField: "CourseName",
+            dataValueField: "CoursesID",
+            dataSource: {
+                transport: {
+                    read: {
+                        url: "@Url.Action("CoursesList", "NewGuidancePlan")",
+                    method: "POST"
+                    }
+                }
+            },
+            change: function (e) {
+                var credits = this.dataItem().Credit;
+                $("#credit19").val(credits);
+            }
+        });
+
+        $("#course20").kendoComboBox({
+            placeholder: "Select Course",
+            serverFiltering: true,
+            dataTextField: "CourseName",
+            dataValueField: "CoursesID",
+            dataSource: {
+                transport: {
+                    read: {
+                        url: "@Url.Action("CoursesList", "NewGuidancePlan")",
+                    method: "POST"
+                    }
+                }
+            },
+            change: function (e) {
+                var credits = this.dataItem().Credit;
+                $("#credit20").val(credits);
+            }
+        });
+
+        var data = [
+            { text: "Winter", value: "1" },
+            { text: "Spring", value: "2" },
+            { text: "Summer", value: "3" },
+            { text: "Fall", value: "4" }
+        ];
+
+        // create DropDownList from input HTML element
+        $("#season1").kendoDropDownList({
+            dataTextField: "text",
+            dataValueField: "value",
+            dataSource: data,
+            index: 0,
+        });
+
+        var season1 = $("#season1").data("kendoDropDownList");
+
+        $("#season2").kendoDropDownList({
+            dataTextField: "text",
+            dataValueField: "value",
+            dataSource: data,
+            index: 0,
+        });
+
+        var season2 = $("#season2").data("kendoDropDownList");
+
+        $("#season3").kendoDropDownList({
+            dataTextField: "text",
+            dataValueField: "value",
+            dataSource: data,
+            index: 0,
+        });
+
+        var season3 = $("#season3").data("kendoDropDownList");
+
+        $("#season4").kendoDropDownList({
+            dataTextField: "text",
+            dataValueField: "value",
+            dataSource: data,
+            index: 0,
+        });
+
+        var season4 = $("#season4").data("kendoDropDownList");
+
+        $("#year1").kendoDatePicker({
+            start: "decade",
+            depth: "decade",
+            format: "yyyy"
+        });
+
+        $("#year2").kendoDatePicker({
+            start: "decade",
+            depth: "decade",
+            format: "yyyy"
+        });
+
+        $("#year3").kendoDatePicker({
+            start: "decade",
+            depth: "decade",
+            format: "yyyy"
+        });
+
+        $("#year4").kendoDatePicker({
+            start: "decade",
+            depth: "decade",
+            format: "yyyy"
+        });
+    });
+</script>
+

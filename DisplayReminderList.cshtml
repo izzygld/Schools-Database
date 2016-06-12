@@ -1,0 +1,44 @@
+﻿@model HoneyMustard.Web.Models.ReminderListCenter
+
+@{
+    ViewBag.Title = "DisplayReminderList";
+}
+
+<h2>DisplayReminderList</h2>
+
+<p>
+    @Html.ActionLink("Create New Reminder", "CreateReminder")
+</p>
+<table class="table">
+    <tr>
+        <th>Reminder From:</th>
+        <th>Reminder To:</th>
+        <th>Subject:</th>
+        <th>Details:</th>
+        <th>Alarm:</th>
+    </tr>
+
+@foreach (HoneyMustard.Web.Models.ReminderList reminderli in @Model.Reminderss) 
+{
+    <tr data-id="@reminderli.ReminderID">
+
+        <td>@reminderli.From</td>
+        <td>@reminderli.To</td>
+
+        <td>@reminderli.Subject</td>
+
+        <td>@reminderli.Details</td>
+
+        <td>@reminderli.ReminderDateTime</td>
+
+        <td>
+            @Html.ActionLink("Edit", "EditReminder", new { id = reminderli.ReminderID }) |
+            @Html.ActionLink("Delete", "DeleteReminder", new { id = reminderli.ReminderID })|
+
+            @Html.ActionLink("Details", "ReminderDetails", new { id = reminderli.ReminderID })
+            
+        </td>
+    </tr>
+}
+
+</table>

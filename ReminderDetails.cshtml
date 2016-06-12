@@ -1,0 +1,80 @@
+﻿@model HoneyMustard.Web.Models.ReminderCenter
+<style>
+    dd {
+        color: red;
+    }
+</style>
+<div>
+    <h4>ReminderCenter</h4>
+    <hr />
+    <div align="center">
+        <div class="form-group" style="text-align: center; clear: both">
+
+
+
+
+            <dt>From:</dt>
+            @foreach (HoneyMustard.Web.Models.FromReminderListTableRow From in @Model.From)
+            {
+
+                <dd>@From.FirstMidName @From.LastName</dd>
+
+            }
+
+            <dt>To:</dt>
+
+            @foreach (HoneyMustard.Web.Models.ToReminderListTableRow To in @Model.To)
+            {
+
+                <dd>@To.FirstMidName @To.LastName</dd>
+
+            }
+
+
+
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ReminderID)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ReminderID)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Subject)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Subject)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Details)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Details)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ReminderDateTime)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ReminderDateTime)
+            </dd>
+
+
+
+
+
+
+            <p>
+                @Html.ActionLink("Edit", "EditReminder", new { id = Model.ReminderID }) |
+                @Html.ActionLink("Delete", "DeleteReminder", new { id = Model.ReminderID })|
+                @Html.ActionLink("Back to List", "DisplayReminderList")
+            </p>
+        </div>
+    </div>
+</div>

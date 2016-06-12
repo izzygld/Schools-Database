@@ -1,0 +1,131 @@
+﻿@model HoneyMustard.Web.Models.ReminderScreen
+
+@{
+    ViewBag.Title = "ReminderScreen";
+}
+
+<h2>ReminderScreen</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>ReminderScreen</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.ContactID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ContactID, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ContactID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.To, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.To, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.To, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.From, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.From, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.From, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Subject, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Subject, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Subject, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ReminderDateTime, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ReminderDateTime, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ReminderDateTime, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Details, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Details, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Details, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @*    @Html.ActionLink("Back to List", "Index")*@
+</div>
+
+<script>
+        $(document).ready(function () {
+            $("#From").kendoComboBox({
+                placeholder: "From Name",
+                serverFiltering: true,
+                dataTextField: "Name",
+                dataValueField: "ContactID",
+                dataSource: {
+                    transport: {
+                        read: {
+                            url: "@Url.Action("ContactList", "Contacts")",
+                        }
+                    }
+                }
+            });
+
+
+            $("#To").kendoComboBox({
+                placeholder: "To Name",
+                serverFiltering: true,
+                dataTextField: "Name",
+                dataValueField: "ContactID",
+                dataSource: {
+                    transport: {
+                        read: {
+                            url: "@Url.Action("ContactList", "Contacts")"
+                        }
+                    }
+                }
+            });
+
+
+        $("#Subject").kendoComboBox({
+            placeholder: "Subject",
+            serverFiltering: true,
+            dataTextField: "Subject",
+            dataValueField: "ReminderID",
+            dataSource: {
+                transport: {
+                    read: {
+                        url: "@Url.Action("Subject", "Contacts")"
+                    }
+                }
+            }
+        });
+
+
+        // create DateTimePicker from input HTML element
+        $("#ReminderDateTime").kendoDateTimePicker({
+            value: new Date()
+        });
+    });
+
+        $("#Details").jqte();
+</script>

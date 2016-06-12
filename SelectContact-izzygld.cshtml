@@ -1,0 +1,21 @@
+﻿@model HoneyMustard.Web.Models.FinanceSearchModels
+
+
+@{
+    ViewBag.Title = "SelectContact";
+}
+<div style="text-align:right">
+<img src="http://compuskills.org/wptest/wp-content/uploads/2014/08/logoaug141.png" alt="Honey Mustard Project" style="height:100px;margin:4px"></>
+</div>
+<h2 style="text-align:center"><u>Select Name</u></h2>
+
+    @*<input id="studentID" placeholder="Students" />*@
+<div style="text-align:center">
+<div>Students <br />
+@Html.DropDownList("studentidnew", Model.Students)
+    </div>
+<div>Employees <br/>
+    @*<input id="employeeID" placeholder="Employees" />*@
+@Html.DropDownList("employeeidnew", Model.Employees)
+    </div>
+    </div>

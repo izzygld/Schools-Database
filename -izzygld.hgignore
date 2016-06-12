@@ -1,0 +1,43 @@
+syntax: glob
+
+## User-specific files
+
+*.suo
+*.user
+*.sln.docstates
+
+## Build results
+
+[Dd]ebug/
+[Rr]elease/
+x64/
+build/
+[Bb]in/
+[Oo]bj/
+
+## SQL Server Ignores
+
+App_Data/*.mdf
+App_Data/*.ldf
+
+## Miscellaneous Ignores
+
+sql/
+*.Cache
+ClientBin/
+[Ss]tyle[Cc]op.*
+~$*
+*~
+*.dbmdl
+*.[Pp]ublish.xml
+*.pfx
+*.publishsettings
+
+## Windows Ignores
+
+$RECYCLE.BIN/
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+HoneyMustard/Test.Unit/app.config
+

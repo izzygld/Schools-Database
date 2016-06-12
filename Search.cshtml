@@ -1,0 +1,35 @@
+﻿@model HoneyMustard.Web.Models.CourseSearcherModel
+
+@{
+    ViewBag.Title = "Search for Courses ";
+
+
+}
+<style>
+
+
+</style>
+<body>
+    <h2>Search for Courses</h2>
+
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary()
+
+        @Html.ValidationMessageFor(x => x.CourseName)
+        <label for="CourseName">Name of Course: <input type="text" name="CourseName" /></label>
+        <br />
+        <br />
+        <label for="Year"> Year: <input type="text" name="Year" /></label>
+        <br />
+        <br />
+        <br />
+        <input type="submit" value="Search" />
+
+    }
+
+    <p>
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+
+</body> 
